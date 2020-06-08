@@ -47,7 +47,7 @@ const initialQuestions = () => {
 function runQuery(query) {
     connection.query(query, function (err, res) {
         if (err) throw err;
-        return res;
+        console.table(res);
     })
 };
 
@@ -87,8 +87,8 @@ function addEmployee() {
             message: "What is the employee's role?",
             choices: [
                 "Salesperson",
-                "Sales lead", 
-                "Lead engineer", 
+                "Sales Lead", 
+                "Lead Engineer", 
                 "Software Engineer", 
                 "Accountant", 
                 "Legal Lead", 
@@ -98,22 +98,25 @@ function addEmployee() {
         }
     ])
     .then(function(answers){
-        let roles_id = selectRole(answers.newRole);
+        roles_obj = {
+            "Salesperson": 1,
+            "Sales Lead": 2,
+            "Lead Engineer": 3,
+            "Software Engineer": 4,
+            "Accountant": 5,
+            "Legal Lead": 6,
+            "Lawyer": 7
+        }
+
         connection.query("INSERT INTO employee SET ?",
         {
             first_name: answers.newFName,
             last_name: answers.newLName,
-            role_id: roles_id,
+            role_id: roles_obj[answers.newRole],
             manager_id: null
         })
+        allEmployees();
     });
-    
-}
-
-function selectRole(name) {
-    const query = "SELECT id FROM role WHERE title = '" + name + "'";
-    console.log(runQuery(query));
-    return parseInt(runQuery(query).id);
     
 }
 
