@@ -10,9 +10,13 @@ VALUES ("Salesperson", 45000, 1), ("Sales Lead", 60000, 1), ("Lead Engineer", 15
 
 -- andrew id 1, bob 2, deborah 3, edgar 4, frank 5, george 6, hank 7, john 8, kat 9
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Andrew", "Allansby", 1, null), ("Bob", "Bobsworth", 1, 1), ("Deborah", "Donkavich", 1, 1), ("Edgar", "Edganton", 2, null), ("Frank", "Frankington", 2, 4), ("George", "Jackson", 2, 4), ("Hank", "Harton", 3, null), ("John", "Jonesberry", 4, null), ("Katarina", "Katmandu", 4, 8);
+VALUES ("Andrew", "Allansby", 2, null), ("Bob", "Bobsworth", 1, 1), ("Deborah", "Donkavich", 1, 1), ("Edgar", "Edganton", 3, null), ("Frank", "Frankington", 4, 4), ("George", "Jackson", 4, 4), ("Hank", "Harton", 5, null), ("John", "Jonesberry", 6, null), ("Katarina", "Katmandu", 7, 8);
 
 SELECT employee.id, employee.first_name, employee.last_name, role.title, department.name, role.salary, employee.manager_id
-FROM role, employee
-INNER JOIN department
-ON role.department_id = department.id;
+FROM employee
+JOIN role ON employee.role_id = role.id
+JOIN department ON role.department_id = department.id;
+
+SELECT employee.id, employee.first_name, employee.last_name, role.title, department.name, role.salary, employee.manager_id
+FROM department
+JOIN 
