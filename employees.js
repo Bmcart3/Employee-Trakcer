@@ -12,9 +12,10 @@ const connection = mysql.createConnection({
 
 connection.connect(function(err) {
     if (err) throw err;
-    console.log("Connected.")
+    console.log("Connected")
     initialQuestions();
 });
+
 
 const initialQuestions = () => {
     inquirer.prompt([
@@ -30,33 +31,65 @@ const initialQuestions = () => {
 };
 
 async function selectionChecker(data) {
-    let newType;
-    let question;
-    let newChoices;
-    let newName;
-    if (data.initialSlection === "View all employees") {
-
-    } else if (data.initialSelection === "View all employees by department") {
-
-    } else if (data.initialSelection === "View all employees by manager") {
-
-    } else if (data.initialSelection === "Add employee") {
-
-    } else if (data.initialSelection === "Remove employee") {
-
-    } else if (data.initialSelection === "Update employee role") {
-
-    } else if (data.initialSelection === "Update employee manager") {
-
+    // let newType;
+    // let question;
+    // let newChoices;
+    // let newName;
+    if (data.initialSelection == "View all employees") {
+        allEmployees();
+    } else if (data.initialSelection == "View all employees by department") {
+        allByDepartment();
+    } else if (data.initialSelection == "View all employees by manager") {
+        allByManager();
+    } else if (data.initialSelection == "Add employee") {
+        addEmployee();
+    } else if (data.initialSelection == "Remove employee") {
+        removeEmployee();
+    } else if (data.initialSelection == "Update employee role") {
+        updateRole();
+    } else if (data.initialSelection == "Update employee manager") {
+        updateManager();
     } else {
-
+        allRoles();
     };
-    const response = await inquirer.prompt([
-        {
-            type: newType,
-            message: question,
-            choices: newChoices,
-            name: newName
-        }
-    ]);
+    // const response = await inquirer.prompt([
+    //     {
+    //         type: newType,
+    //         message: question,
+    //         choices: newChoices,
+    //         name: newName
+    //     }
+    // ]);
 };
+
+// function allEmployees() {
+
+// }
+
+// function allByDepartment() {
+
+// }
+
+// function allByManager() {
+
+// }
+
+// function addEmployee() {
+
+// }
+
+// function removeEmployee() {
+
+// }
+
+// function updateRole() {
+
+// }
+
+// function updateManager() {
+
+// }
+
+
+
+
