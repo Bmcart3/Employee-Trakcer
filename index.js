@@ -30,7 +30,8 @@ const initialQuestions = () => {
     });
 };
 
-async function selectionChecker(data) {
+//may need to be async
+function selectionChecker(data) {
     // let newType;
     // let question;
     // let newChoices;
