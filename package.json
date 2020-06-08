@@ -1,0 +1,24 @@
+{
+  "name": "employee-trakcer",
+  "version": "1.0.0",
+  "description": "Command line application that allows the user to interact with a database of employees.",
+  "main": "employees.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bmcart3/Employee-Trakcer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bmcart3/Employee-Trakcer/issues"
+  },
+  "homepage": "https://github.com/Bmcart3/Employee-Trakcer#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^7.1.0",
+    "mysql": "^2.18.1"
+  }
+}
