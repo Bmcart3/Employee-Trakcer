@@ -26,70 +26,56 @@ const initialQuestions = () => {
             name: "initialSelection"
         }
     ]).then(function (answer) {
-        selectionChecker(answer);
+        console.log(answer.initialSelection);
+        if (answer.initialSelection === "View all employees") {
+            allEmployees();
+        } else if (answer.initialSelection === "View all employees by department") {
+            allByDepartment();
+        } else if (answer.initialSelection === "View all employees by manager") {
+            allByManager();
+        } else if (answer.initialSelection === "Add employee") {
+            addEmployee();
+        } else if (answer.initialSelection === "Remove employee") {
+            removeEmployee();
+        } else if (answer.initialSelection === "Update employee role") {
+            updateRole();
+        } else if (answer.initialSelection === "Update employee manager") {
+            updateManager();
+        } else {
+            allRoles();
+        };
     });
 };
 
-//may need to be async
-function selectionChecker(data) {
-    // let newType;
-    // let question;
-    // let newChoices;
-    // let newName;
-    if (data.initialSelection == "View all employees") {
-        allEmployees();
-    } else if (data.initialSelection == "View all employees by department") {
-        allByDepartment();
-    } else if (data.initialSelection == "View all employees by manager") {
-        allByManager();
-    } else if (data.initialSelection == "Add employee") {
-        addEmployee();
-    } else if (data.initialSelection == "Remove employee") {
-        removeEmployee();
-    } else if (data.initialSelection == "Update employee role") {
-        updateRole();
-    } else if (data.initialSelection == "Update employee manager") {
-        updateManager();
-    } else {
-        allRoles();
-    };
-    // const response = await inquirer.prompt([
-    //     {
-    //         type: newType,
-    //         message: question,
-    //         choices: newChoices,
-    //         name: newName
-    //     }
-    // ]);
-};
+function allEmployees() {
+    connection.query("SELECT * FROM employee", function(res, err){
+        if(err) throw err;
+    })
+}
 
-// function allEmployees() {
+function allByDepartment() {
 
-// }
+}
 
-// function allByDepartment() {
+function allByManager() {
 
-// }
+}
 
-// function allByManager() {
+function addEmployee() {
 
-// }
+}
 
-// function addEmployee() {
+function removeEmployee() {
 
-// }
+}
 
-// function removeEmployee() {
+function updateRole() {
 
-// }
+}
 
-// function updateRole() {
+function updateManager() {
 
-// }
-
-// function updateManager() {
-
-// }
+}
 
 
 
